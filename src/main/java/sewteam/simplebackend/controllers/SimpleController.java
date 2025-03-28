@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class SimpleController {
-    private int num = 0;
     @GetMapping("/get_data")
     public String sendData() {
-        num++;
-        return "Data" + num + " from backend.";
+        return "Data from backend.";
     }
 }
