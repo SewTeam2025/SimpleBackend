@@ -1,25 +1,8 @@
 version: '3.8'
 
 services:
-  app:
-    image: openjdk:17-jdk-slim
-    container_name: springboot-app
-    working_dir: /app
-    volumes:
-      - ./target/demo-0.0.1-SNAPSHOT.jar:/app/app.jar
-    ports:
-      - "8080:8080"
-    environment:
-      - SPRING_PROFILES_ACTIVE=default
-    command: java -jar app.jar
-    depends_on:
-      - postgres
-    networks:
-      - spring-net
-
   postgres:
     image: postgres:15-alpine
-    container_name: postgres-db
     environment:
       - POSTGRES_DB=mydb
       - POSTGRES_USER=user
@@ -28,12 +11,6 @@ services:
       - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
-    networks:
-      - spring-net
 
 volumes:
   postgres-data:
-
-networks:
-  spring-net:
-    driver: bridge
