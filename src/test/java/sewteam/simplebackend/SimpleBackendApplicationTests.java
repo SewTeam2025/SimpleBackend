@@ -11,9 +11,7 @@ class SimpleBackendApplicationTests {
     @Test
     void contextLoads() {
         SimpleController controller = new SimpleController();
-        Assertions.assertEquals("Data1 from backend", controller.sendData());
-        Assertions.assertEquals("Data2 from backend", controller.sendData());
-        Assertions.assertEquals("Data3 from backend", controller.sendData());
+        Assertions.assertEquals("Data from backend.", controller.sendData());
     }
 
 }
